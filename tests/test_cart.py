@@ -1,3 +1,6 @@
+import pytest
+
+@pytest.mark.regression
 def test_cart_add_product(cart):
     cart.open_page()
     cart.cart_add_product()

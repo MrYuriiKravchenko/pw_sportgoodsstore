@@ -1,3 +1,6 @@
+import pytest
+
+@pytest.mark.smoke
 def test_filter_price(filter_price):
     filter_price.open_page()
     filter_price.choice_filter()
