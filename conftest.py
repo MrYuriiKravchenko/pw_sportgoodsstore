@@ -1,25 +1,21 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 import pytest
-from pages.sale_page import SalePage
-from pages.customer_login import CustomerLogin
-
-
-@pytest.fixture()
-def driver():
-    options = Options()
-    options.add_argument("--headless")
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    chrome_driver = webdriver.Chrome(options=options)
-    return chrome_driver
-
+from pages.search import SearchProduct
+from pages.cart import Cart
+from pages.filter import FilterPrice
+from pages.category import Category
 
 @pytest.fixture()
-def sale_page(driver):
-    return SalePage(driver)
-
+def filter_price(page):
+    return FilterPrice(page)
 
 @pytest.fixture()
-def login_page(driver):
-    return CustomerLogin(driver)
+def search_product(page):
+    return SearchProduct(page)
+
+@pytest.fixture()
+def cart(page):
+    return Cart(page)
+
+@pytest.fixture()
+def category(page):
+    return Category(page)
